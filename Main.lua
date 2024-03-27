@@ -40,7 +40,7 @@ local MainThread = Thread:New()
 local RenderEventObject = Event:New(RunService.RenderStepped)
 local PhysicsEventObject = Event:New(RunService.Stepped)
 local EntityHandlerObject = Event:New(EntityFolder.ChildAdded)
-local JumpRequestObject = Event:New(UserInputService.JumpRequest)
+--local JumpRequestObject = Event:New(UserInputService.JumpRequest)
 
 local function StartDetachFn()
 	Helper.TryAndCatch(
@@ -63,7 +63,7 @@ local function StartDetachFn()
 			RenderEventObject:Disconnect()
 			EntityHandlerObject:Disconnect()
 			PhysicsEventObject:Disconnect()
-			JumpRequestObject:Disconnect()
+			--JumpRequestObject:Disconnect()
 
 			-- Special disconnect (see EventHandler)...
 			if EntityHandler.DisconnectAutoParry then
@@ -125,7 +125,7 @@ local function MainThreadFn()
 			RenderEventObject:Connect(RenderEvent.CallbackFn)
 			PhysicsEventObject:Connect(PhysicsEvent.CallbackFn)
 			EntityHandlerObject:Connect(EntityHandler.CallbackFn)
-			JumpRequestObject:Connect(JumpRequest.CallbackFn)
+			--JumpRequestObject:Connect(JumpRequest.CallbackFn)
 
 			-- EntityHandler is a special event...
 			-- We should call the CallbackFn with our current entities...
